@@ -10,8 +10,7 @@ Research repository for the vivarium_ihme_obesity_washout project.
 Model Documentation Resources
 -----------------------------
 
-**You should put links to the concept model documentation and any other**
-**relevant documentation here.**
+CONCEPT MODEL: ``J:/Project/simulation_science/cvd/concept_model_obesity_washout.docx``
 
 Installation
 ------------

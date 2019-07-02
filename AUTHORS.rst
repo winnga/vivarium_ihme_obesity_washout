@@ -2,8 +2,8 @@ Authors
 ======
 
 LEAD ENGINEER:
-RESEARCHER:
-DATA ANALYST:
+RESEARCHER: Abie
+DATA ANALYST: Yaqi
 
 Contributors
 -------------
