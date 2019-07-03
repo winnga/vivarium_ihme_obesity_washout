@@ -1,1 +1,1 @@
-from cause_models import CKD_SI, DiabetesSIS
+from .cause_models import CKD_SI, DiabetesSIS
