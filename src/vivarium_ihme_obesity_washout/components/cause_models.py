@@ -1,3 +1,4 @@
+from vivarium_public_health.disease import (SusceptibleState, ExcessMortalityState, DiseaseModel)
 
 class CKD_SI:
 
@@ -14,12 +15,8 @@ class CKD_SI:
         return self.cause
 
     def setup(self, builder):
-        disease_model_data_functions = {}
-
-        healthy = SusceptibleState(self.cause, get_data_functions={'incidence': self.get_incidence})
+        healthy = SusceptibleState(self.cause)
         infected = ExcessMortalityState(self.cause, get_data_functions={
-            'prevalence': self.get_prevalence,
-            'excess_mortality': self.get_excess_mortality,
             'disability_weight': self.get_disability_weight}
             )
 
@@ -27,28 +24,12 @@ class CKD_SI:
         healthy.add_transition(infected, source_data_type='rate')
         infected.allow_self_transitions()
 
-        builder.components.add_components([DiseaseModel(self.cause, states=[healthy, infected],
-                                                        get_data_functions={'csmr': self.get_cause_specific_mortality})])
-
-    def get_prevalence(self, _, builder):
-        for cause in self.subcauses:
-            builder.data.load(f'cause.{cause}.prevalence')
-
-    def get_incidence(self, _, builder):
-        for cause in self.subcauses:
-            builder.data.load(f'cause.{cause}.incidence')
-
-    def get_excess_mortality(self, _, builder):
-        for cause in self.subcauses:
-            builder.data.load(f'cause.{cause}.excess_mortality')
+        builder.components.add_components([DiseaseModel(self.cause, states=[healthy, infected])])
 
     def get_disability_weight(self, _, builder):
         for cause in self.subcauses:
             builder.data.load(f'cause.{cause}.disability_weight')
 
-    def get_cause_specific_mortality(self, _, builder):
-        for cause in self.subcauses:
-            builder.data.load(f'cause.{cause}.cause_specific_mortality')
 
     def __repr__(self):
         return 'CKD_SI'
