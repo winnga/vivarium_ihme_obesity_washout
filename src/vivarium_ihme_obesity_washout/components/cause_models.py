@@ -1,5 +1,6 @@
 from vivarium_public_health.disease import (SusceptibleState, ExcessMortalityState, DiseaseModel)
 
+
 class CKD_SI:
 
     def __init__(self):
@@ -29,7 +30,6 @@ class CKD_SI:
     def get_disability_weight(self, _, builder):
         for cause in self.subcauses:
             builder.data.load(f'cause.{cause}.disability_weight')
-
 
     def __repr__(self):
         return 'CKD_SI'
