@@ -18,7 +18,7 @@ class CKD_SI:
     def setup(self, builder):
         healthy = SusceptibleState(self.cause)
         infected = ExcessMortalityState(self.cause, get_data_functions={
-            'disability_weight': self.get_disability_weight}
+            'disability_weight': lambda _, __: 0}  # we don't care about disability for this model
             )
 
         healthy.allow_self_transitions()
@@ -27,9 +27,6 @@ class CKD_SI:
 
         builder.components.add_components([DiseaseModel(self.cause, states=[healthy, infected])])
 
-    def get_disability_weight(self, _, builder):
-        for cause in self.subcauses:
-            builder.data.load(f'cause.{cause}.disability_weight')
 
     def __repr__(self):
         return 'CKD_SI'
