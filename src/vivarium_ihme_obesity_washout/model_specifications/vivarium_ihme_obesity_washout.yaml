@@ -21,13 +21,13 @@ components:
             - SI("gallbladder_and_biliary_tract_cancer")
             - SI("pancreatic_cancer")
             - SI("ovarian_cancer")
-            - SI("kidney_cancer")
+            #- SI("kidney_cancer") - wider yll restriction age range than yld
             - SI("thyroid_cancer")
-            - SI("non_hodgkin_lymphoma")
+            #- SI("non_hodgkin_lymphoma") - wider yll restriction age range than yld
             - SI("multiple_myeloma")
             - SI("ischemic_heart_disease")
             - SI("ischemic_stroke")
-            - SI("intracerebral_hemorrhage")
+            #- SI("intracerebral_hemorrhage") - wider yll restriction age range than yld
             - SI("subarachnoid_hemorrhage")
             - SI("hypertensive_heart_disease")
             - SI("atrial_fibrillation_and_flutter")
@@ -38,11 +38,11 @@ components:
             - SI("low_back_pain")
             - SI("gout")
             - SI("cataract")
-            - SI("acute_lymphoid_leukemia")
+            #- SI("acute_lymphoid_leukemia") - wider yll restriction age range than yld
             - SI("chronic_lymphoid_leukemia")
             - SI("acute_myeloid_leukemia")
             - SI("chronic_myeloid_leukemia")
-            - SI("other_leukemia")
+            #- SI("other_leukemia") - wider yll restriction age range than yld
         risks:
             - Risk("risk_factor.high_body_mass_index_in_adults")
             # - RiskEffect("risk_factor.high_body_mass_index_in_adults_in_adults", "cause.esophageal_cancer.incidence_rate")
