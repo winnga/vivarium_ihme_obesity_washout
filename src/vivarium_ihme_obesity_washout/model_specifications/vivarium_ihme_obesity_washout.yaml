@@ -29,15 +29,15 @@ components:
             - SI("ischemic_stroke")
             #- SI("intracerebral_hemorrhage") - wider yll restriction age range than yld
             - SI("subarachnoid_hemorrhage")
-            - SI("hypertensive_heart_disease")
+            #- SI("hypertensive_heart_disease") - no incidence data
             - SI("atrial_fibrillation_and_flutter")
-            - SIS("asthma")
+            - SI("asthma") # no remission data available for asthma - no dismod id
             - SI("gallbladder_and_biliary_diseases")
             - SI("alzheimers_disease_and_other_dementias")
             - SI("osteoarthritis")
             - SI("low_back_pain")
             - SI("gout")
-            - SI("cataract")
+            #- SI("cataract") - no incidence data
             #- SI("acute_lymphoid_leukemia") - wider yll restriction age range than yld
             - SI("chronic_lymphoid_leukemia")
             - SI("acute_myeloid_leukemia")
