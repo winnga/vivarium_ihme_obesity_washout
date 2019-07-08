@@ -71,7 +71,6 @@ class BMIObserver:
         names = ['underweight', 'normal', 'overweight', 'obesity_grade_1', 'obesity_grade_2', 'obesity_grade_3']
         return names, thresholds
 
-
     def metrics(self, index: pd.Index, metrics: dict):
         pop = self.population_view.get(index)
         pop.loc[pop.exit_time.isnull(), 'exit_time'] = self.clock()
@@ -79,7 +78,7 @@ class BMIObserver:
         pop = pop[pop.exit_time < self.washout_period_end]
 
         exposure = self.bmi_exposure(index)
-        thresholds, names = self.get_bmi_categories()
+        names, thresholds = self.get_bmi_categories()
         bmi_categories = pd.cut(exposure, thresholds, right=False, labels=names)
 
         for cat in bmi_categories.unique():
