@@ -119,3 +119,9 @@ configuration:
             by_age: True
             by_sex: True
             by_year: True
+            washout:
+                program_start:
+                    year: 2000
+                    month: 7
+                    day: 9
+                duration: 5 # years

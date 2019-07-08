@@ -13,9 +13,9 @@ class BMIObserver:
                 'by_sex': False,
                 'washout': {
                     'program_start': {
+                        'year': 2000,
                         'month': 7,
                         'day': 9,
-                        'year': 2000
                     },
                     'duration': 5  # years
                 }
