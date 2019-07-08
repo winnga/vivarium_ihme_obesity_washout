@@ -11,10 +11,13 @@ class BMIObserver:
                 'by_age': False,
                 'by_year': False,
                 'by_sex': False,
-                'washout_program_start': {
-                    'month': 7,
-                    'day': 9,
-                    'year': 2000
+                'washout': {
+                    'program_start': {
+                        'month': 7,
+                        'day': 9,
+                        'year': 2000
+                    },
+                    'duration': 5  # years
                 }
             }
         }
@@ -30,15 +33,15 @@ class BMIObserver:
         self.step_size = builder.time.step_size()
         self.start_time = self.clock()
 
-        program_start = pd.Timestamp(month=self.config.washout_program_start.month,
-                                     day=self.config.washout_program_start.day,
-                                     year=self.config.washout_program_start.year)
+        program_start = pd.Timestamp(month=self.config.washout.program_start.month,
+                                     day=self.config.washout.program_start.day,
+                                     year=self.config.washout.program_start.year)
         if self.start_time > program_start:
             raise ValueError(f'The washout program must begin after the start of the simulation. '
                              f'Your simulation begins: {self.start_time} while the '
                              f'washout program begins {program_start}.')
 
-        self.washout_period_end = program_start + pd.Timedelta(years=5)
+        self.washout_period_end = program_start + pd.Timedelta(days=self.config.washout.duration*365.25)
 
         self.initial_pop_entrance_time = self.start_time - self.step_size()
         self.age_bins = get_age_bins(builder)
