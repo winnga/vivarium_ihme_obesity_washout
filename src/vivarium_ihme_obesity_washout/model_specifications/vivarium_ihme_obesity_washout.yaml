@@ -31,13 +31,9 @@ components:
             - SI("subarachnoid_hemorrhage")
             #- SI("hypertensive_heart_disease") - no incidence data
             - SI("atrial_fibrillation_and_flutter")
-            #- SIS("asthma") # no remission data available for asthma - no dismod id
+            - SI("asthma") # no remission data available for asthma - no dismod id
             - SI("gallbladder_and_biliary_diseases")
             - SI("alzheimers_disease_and_other_dementias")
-            - SI("osteoarthritis")
-            - SI("low_back_pain")
-            - SI("gout")
-            #- SI("cataract") - no incidence data
             #- SI("acute_lymphoid_leukemia") - wider yll restriction age range than yld
             - SI("chronic_lymphoid_leukemia")
             - SI("acute_myeloid_leukemia")
@@ -66,14 +62,10 @@ components:
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.subarachnoid_hemorrhage.incidence_rate")
             #- RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.hypertensive_heart_disease.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.atrial_fibrillation_and_flutter.incidence_rate")
-            #- RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.asthma.incidence_rate")
+            - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.asthma.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.gallbladder_and_biliary_diseases.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.alzheimers_disease_and_other_dementias.incidence_rate")
             #- RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.chronic_kidney_disease.incidence_rate")
-            #- RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.osteoarthritis.incidence_rate") - no RR for bmi & osteoarthritis
-            - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.low_back_pain.incidence_rate")
-            - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.gout.incidence_rate")
-            #- RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.cataract.incidence_rate")
             #- RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.acute_lymphoid_leukemia.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.chronic_lymphoid_leukemia.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.acute_myeloid_leukemia.incidence_rate")
