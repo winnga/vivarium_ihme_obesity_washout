@@ -20,7 +20,7 @@ if __name__ == "__main__":
         'vivarium==0.8.21',
         'vivarium_public_health==0.9.13',
         'vivarium_cluster_tools==1.0.14',
-        'vivarium_inputs[data]==3.0.0',
+        'vivarium_inputs[data]==3.0.0',  # FIXME: artifact was built off dev version of inputs. this pin needs to be updated when released.
         
         # These are pinned for internal dependencies on IHME libraries
         'numpy<=1.15.4',
