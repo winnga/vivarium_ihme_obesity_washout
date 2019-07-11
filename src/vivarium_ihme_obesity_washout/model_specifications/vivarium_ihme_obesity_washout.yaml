@@ -91,7 +91,7 @@ configuration:
     input_data:
         location: United States
         input_draw_number: 0
-        artifact_path: /home/kate/vivarium_artifacts/vivarium_ihme_obesity_washout.hdf
+        artifact_path: /share/costeffectiveness/artifacts/vivarium_ihme_obesity_washout/vivarium_ihme_obesity_washout.hdf
     interpolation:
         order: 0
         extrapolate: False
@@ -105,26 +105,23 @@ configuration:
             month: 7
             day: 2
         end:
-            year: 2005
-            month: 8
+            year: 2015
+            month: 7
             day: 2
         step_size: 30 # Days
     population:
-        population_size: 1_000
+        population_size: 10_000
         age_start: 20
         age_end: 90
-        exit_age: 90
 
     metrics:
         bmi:
             by_age: True
             by_sex: True
             by_year: True
-            # TODO: someone should check that the below WHO categories are in the same units as GBD exposure
-            categories:  [15, 18.5, 25, 30, 35, 40, 60]  # right edges (exclusive) of BMI categories to bin by
             washout:
                 program_start:
                     year: 2000
                     month: 7
                     day: 9
-                duration: 1 # years
+                duration: 5 # years
