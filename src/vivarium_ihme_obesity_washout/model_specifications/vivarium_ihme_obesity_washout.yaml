@@ -113,15 +113,18 @@ configuration:
         population_size: 10_000
         age_start: 20
         age_end: 90
+        exit_age: 90
 
     metrics:
         bmi:
             by_age: True
             by_sex: True
             by_year: True
+            # TODO: someone should check that the below WHO categories are in the same units as GBD exposure
+            categories:  [15, 18.5, 25, 30, 35, 40, 60]  # right edges (exclusive) of BMI categories to bin by
             washout:
                 program_start:
                     year: 2000
                     month: 7
                     day: 9
-                duration: 5 # years
+                duration: 1 # years
