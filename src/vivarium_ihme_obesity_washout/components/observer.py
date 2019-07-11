@@ -11,6 +11,7 @@ class BMIObserver:
                 'by_age': False,
                 'by_year': False,
                 'by_sex': False,
+                'categories':  [15, 18.5, 25, 30, 35, 40, 60],  # right edges (exclusive) of BMI categories to bin by
                 'washout': {
                     'program_start': {
                         'year': 2000,
@@ -44,7 +45,11 @@ class BMIObserver:
         self.washout_period_end = program_start + pd.Timedelta(days=self.config.washout.duration*365.25)
 
         self.initial_pop_entrance_time = self.start_time - self.step_size()
+
         self.age_bins = get_age_bins(builder)
+        self.age_bins = self.age_bins[(self.age_bins.age_group_start >= builder.configuration.population.age_start) &
+                                      (self.age_bins.age_group_start <= builder.configuration.population.exit_age)]
+
         diseases = builder.components.get_components_by_type((DiseaseModel, RiskAttributableDisease))
         self.causes = [c.state_column for c in diseases] + ['other_causes']
 
@@ -63,13 +68,13 @@ class BMIObserver:
 
         builder.value.register_value_modifier('metrics', self.metrics)
 
-    @staticmethod
-    def get_bmi_categories():
-        # TODO: verify bmi exposure is in kg/m2
-        # TODO: verify range of bmi exposure
-        thresholds = [15, 18.5, 25, 30, 35, 40, 60]
-        names = ['underweight', 'normal', 'overweight', 'obesity_grade_1', 'obesity_grade_2', 'obesity_grade_3']
-        return names, thresholds
+    def get_bmi_categories(self):
+        bins = self.config.categories
+        lower_bounds = bins.copy()[:-1]
+        lower_bounds.insert(0, 0)
+        names = [f'bmi_group_{c[0]}_to_{c[1]}' for c in zip(lower_bounds, bins)]
+        bins.insert(0, 0)
+        return names, bins
 
     def metrics(self, index: pd.Index, metrics: dict):
         pop = self.population_view.get(index)
@@ -77,7 +82,7 @@ class BMIObserver:
 
         pop = pop[pop.exit_time < self.washout_period_end]
 
-        exposure = self.bmi_exposure(index)
+        exposure = self.bmi_exposure(pop.index)
         names, thresholds = self.get_bmi_categories()
         bmi_categories = pd.cut(exposure, thresholds, right=False, labels=names)
 
