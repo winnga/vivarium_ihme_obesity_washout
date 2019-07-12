@@ -43,12 +43,8 @@ class BMIObserver:
                              f'washout program begins {program_start}.')
 
         self.washout_period_end = program_start + pd.Timedelta(days=self.config.washout.duration*365.25)
-
         self.initial_pop_entrance_time = self.start_time - self.step_size()
-
         self.age_bins = get_age_bins(builder)
-        self.age_bins = self.age_bins[(self.age_bins.age_group_start >= builder.configuration.population.age_start) &
-                                      (self.age_bins.age_group_start <= builder.configuration.population.exit_age)]
 
         diseases = builder.components.get_components_by_type((DiseaseModel, RiskAttributableDisease))
         self.causes = [c.state_column for c in diseases] + ['other_causes']
