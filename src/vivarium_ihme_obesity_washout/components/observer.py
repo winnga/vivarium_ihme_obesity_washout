@@ -34,9 +34,7 @@ class BMIObserver:
         self.step_size = builder.time.step_size()
         self.start_time = self.clock()
 
-        program_start = pd.Timestamp(month=self.config.washout.program_start.month,
-                                     day=self.config.washout.program_start.day,
-                                     year=self.config.washout.program_start.year)
+        program_start = pd.Timestamp(**self.config.washout.program_start.to_dict())
         if self.start_time > program_start:
             raise ValueError(f'The washout program must begin after the start of the simulation. '
                              f'Your simulation begins: {self.start_time} while the '
