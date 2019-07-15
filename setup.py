@@ -3,9 +3,7 @@ import os
 
 from setuptools import setup, find_packages
 
-
 if __name__ == "__main__":
-
     base_dir = os.path.dirname(__file__)
     src_dir = os.path.join(base_dir, "src")
 
@@ -20,12 +18,13 @@ if __name__ == "__main__":
         'vivarium==0.8.21',
         'vivarium_public_health==0.9.13',
         'vivarium_cluster_tools==1.0.14',
-        'vivarium_inputs[data]==3.0.0',  # FIXME: artifact was built off dev version of inputs. this pin needs to be updated when released.
-        
+        'vivarium_inputs[data]==3.0.0',
+        # FIXME: artifact was built off dev version of inputs. this pin needs to be updated when released.
+
         # These are pinned for internal dependencies on IHME libraries
         'numpy<=1.15.4',
         'tables<=3.4.0',
-        
+
         'pandas',
         'scipy',
         'matplotlib',
@@ -34,6 +33,8 @@ if __name__ == "__main__":
         'jupyterlab',
         'pytest',
         'pytest-mock',
+        'click',
+        'yaml',
     ]
 
     setup(
@@ -53,6 +54,11 @@ if __name__ == "__main__":
         include_package_data=True,
 
         install_requires=install_requirements,
+
+        entry_points='''
+            [console_scripts]
+            build_washout_artifact=vivarium_ihme_obesity_washout.tools.cli:build_washout_artifact
+        ''',
 
         zip_safe=False,
     )
