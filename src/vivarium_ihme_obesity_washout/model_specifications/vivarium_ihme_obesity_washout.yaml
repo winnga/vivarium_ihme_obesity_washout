@@ -21,24 +21,24 @@ components:
             - SI("gallbladder_and_biliary_tract_cancer")
             - SI("pancreatic_cancer")
             - SI("ovarian_cancer")
-            #- SI("kidney_cancer") - wider yll restriction age range than yld
+            - SI("kidney_cancer") # wider yll restriction age range than yld
             - SI("thyroid_cancer")
-            #- SI("non_hodgkin_lymphoma") - wider yll restriction age range than yld
+            - SI("non_hodgkin_lymphoma") # wider yll restriction age range than yld
             - SI("multiple_myeloma")
             - SI("ischemic_heart_disease")
             - SI("ischemic_stroke")
-            #- SI("intracerebral_hemorrhage") - wider yll restriction age range than yld
+            - SI("intracerebral_hemorrhage") # wider yll restriction age range than yld
             - SI("subarachnoid_hemorrhage")
             #- SI("hypertensive_heart_disease") - no incidence data
             - SI("atrial_fibrillation_and_flutter")
             - SI("asthma") # no remission data available for asthma - no dismod id
             - SI("gallbladder_and_biliary_diseases")
             - SI("alzheimers_disease_and_other_dementias")
-            #- SI("acute_lymphoid_leukemia") - wider yll restriction age range than yld
+            - SI("acute_lymphoid_leukemia") # wider yll restriction age range than yld
             - SI("chronic_lymphoid_leukemia")
             - SI("acute_myeloid_leukemia")
             - SI("chronic_myeloid_leukemia")
-            #- SI("other_leukemia") - wider yll restriction age range than yld
+            - SI("other_leukemia") # wider yll restriction age range than yld
         risks:
             - Risk("risk_factor.high_body_mass_index_in_adults")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.esophageal_cancer.incidence_rate")
@@ -52,13 +52,13 @@ components:
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.gallbladder_and_biliary_tract_cancer.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.pancreatic_cancer.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.ovarian_cancer.incidence_rate")
-            #- RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.kidney_cancer.incidence_rate")
+            - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.kidney_cancer.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.thyroid_cancer.incidence_rate")
-            #- RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.non_hodgkin_lymphoma.incidence_rate")
+            - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.non_hodgkin_lymphoma.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.multiple_myeloma.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.ischemic_heart_disease.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.ischemic_stroke.incidence_rate")
-            #- RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.intracerebral_hemorrhage.incidence_rate")
+            - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.intracerebral_hemorrhage.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.subarachnoid_hemorrhage.incidence_rate")
             #- RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.hypertensive_heart_disease.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.atrial_fibrillation_and_flutter.incidence_rate")
@@ -66,11 +66,11 @@ components:
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.gallbladder_and_biliary_diseases.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.alzheimers_disease_and_other_dementias.incidence_rate")
             #- RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.chronic_kidney_disease.incidence_rate")
-            #- RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.acute_lymphoid_leukemia.incidence_rate")
+            - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.acute_lymphoid_leukemia.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.chronic_lymphoid_leukemia.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.acute_myeloid_leukemia.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.chronic_myeloid_leukemia.incidence_rate")
-            #- RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.other_leukemia.incidence_rate")
+            - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.other_leukemia.incidence_rate")
             - RiskEffect("risk_factor.high_body_mass_index_in_adults", "cause.diabetes_mellitus_type_2.incidence_rate")
 
     vivarium_ihme_obesity_washout.components:
