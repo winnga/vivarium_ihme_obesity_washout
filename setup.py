@@ -17,10 +17,11 @@ if __name__ == "__main__":
         long_description = f.read()
 
     install_requirements = [
-        'vivarium==0.8.21',
-        'vivarium_public_health==0.9.13',
+        'vivarium==0.8.22',
+        'vivarium_public_health==0.9.16',
         'vivarium_cluster_tools==1.0.14',
-        'vivarium_inputs[data]==3.0.0',  # FIXME: artifact was built off dev version of inputs. this pin needs to be updated when released.
+        'vivarium_inputs[data]==3.0.1',
+        'vivarium_gbd_access==2.0.4', # we need direct access to this for artifact builder
         
         # These are pinned for internal dependencies on IHME libraries
         'numpy<=1.15.4',
