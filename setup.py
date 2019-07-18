@@ -3,9 +3,7 @@ import os
 
 from setuptools import setup, find_packages
 
-
 if __name__ == "__main__":
-
     base_dir = os.path.dirname(__file__)
     src_dir = os.path.join(base_dir, "src")
 
@@ -26,7 +24,7 @@ if __name__ == "__main__":
         # These are pinned for internal dependencies on IHME libraries
         'numpy<=1.15.4',
         'tables<=3.4.0',
-        
+
         'pandas',
         'scipy',
         'matplotlib',
@@ -35,6 +33,8 @@ if __name__ == "__main__":
         'jupyterlab',
         'pytest',
         'pytest-mock',
+        'click',
+        'yaml',
     ]
 
     setup(
@@ -54,6 +54,11 @@ if __name__ == "__main__":
         include_package_data=True,
 
         install_requires=install_requirements,
+
+        entry_points='''
+            [console_scripts]
+            build_washout_artifact=vivarium_ihme_obesity_washout.tools.cli:build_washout_artifact
+        ''',
 
         zip_safe=False,
     )

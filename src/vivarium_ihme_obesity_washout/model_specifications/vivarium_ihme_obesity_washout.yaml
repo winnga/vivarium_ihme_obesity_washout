@@ -31,7 +31,7 @@ components:
             - SI("subarachnoid_hemorrhage")
             #- SI("hypertensive_heart_disease") - no incidence data
             - SI("atrial_fibrillation_and_flutter")
-            - SI("asthma") # no remission data available for asthma - no dismod id
+            - SIS("asthma")
             - SI("gallbladder_and_biliary_diseases")
             - SI("alzheimers_disease_and_other_dementias")
             - SI("acute_lymphoid_leukemia") # wider yll restriction age range than yld
