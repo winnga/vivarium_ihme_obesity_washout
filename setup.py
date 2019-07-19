@@ -34,7 +34,7 @@ if __name__ == "__main__":
         'pytest',
         'pytest-mock',
         'click',
-        'yaml',
+        'pyyaml',
     ]
 
     setup(
