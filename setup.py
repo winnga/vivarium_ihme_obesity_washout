@@ -20,7 +20,7 @@ if __name__ == "__main__":
         'vivarium_cluster_tools==1.0.14',
         'vivarium_inputs[data]==3.0.1',
         'vivarium_gbd_access==2.0.4', # we need direct access to this for artifact builder
-        
+
         # These are pinned for internal dependencies on IHME libraries
         'numpy<=1.15.4',
         'tables<=3.4.0',
@@ -34,7 +34,7 @@ if __name__ == "__main__":
         'pytest',
         'pytest-mock',
         'click',
-        'yaml',
+        'pyyaml',
     ]
 
     setup(
