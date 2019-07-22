@@ -2,4 +2,6 @@ input_draw_count: 100
 random_seed_count: 5
 
 branches:
-  - metrics.bmi.washout.duration: [0, 1, 2, 5]
+  - metrics:
+      obesity_washout:
+        duration: [0, 1, 2, 5]

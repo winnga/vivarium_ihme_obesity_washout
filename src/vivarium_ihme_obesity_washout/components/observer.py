@@ -62,7 +62,7 @@ class WashoutObserver(MortalityObserver):
 
     def eligible(self, pop: pd.DataFrame) -> pd.Index:
         """Gets the observation eligible index."""
-        duration = pd.Timedelta(days=self.washout_config.duration)
+        duration = pd.Timedelta(days=self.washout_config.duration * 365.25)
         return pop.loc[(pop.exit_time >= self.program_start + duration)].index
 
     def metrics(self, index: pd.Index, metrics: Dict) -> Dict:
