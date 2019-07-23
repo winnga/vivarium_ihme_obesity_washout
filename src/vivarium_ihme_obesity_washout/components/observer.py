@@ -38,6 +38,14 @@ class WashoutObserver(MortalityObserver):
                              f'washout program begins {self.program_start}.')
 
         self.bmi_exposure = builder.value.get_value('high_body_mass_index_in_adults.exposure')
+        self.bmi_groups = None
+
+        builder.event.register_listener('collect_metrics', self.on_collect_metrics)
+
+    def on_collect_metrics(self, event):
+        if self.clock() < self.program_start <= event.time:
+            pop = self.population_view.get(index, query='alive == "alive"')
+            self.bmi_groups = self.split_bmi(pop.index)
 
     def split_bmi(self, index: pd.Index) -> Dict[str, pd.Index]:
         """Splits an index into groups based on BMI exposure.
@@ -69,10 +77,9 @@ class WashoutObserver(MortalityObserver):
         pop = self.population_view.get(index)
         pop.loc[pop.exit_time.isnull(), 'exit_time'] = self.clock()
 
-        eligible = self.eligible(pop)
-
-        for group, group_index in self.split_bmi(eligible).items():
-            m = super().metrics(group_index, {})
+        for group, group_index in self.bmi_groups.items():
+            eligble = self.eligble(pop.loc[group_index])
+            m = super().metrics(eligble, {})
             m = {f'{k}_among_{group}': v for k, v in m.items()}
             metrics.update(m)
 
