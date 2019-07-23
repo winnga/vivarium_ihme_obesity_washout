@@ -6,10 +6,10 @@ class CKD_SI:
     def __init__(self):
         self.cause = 'chronic_kidney_disease'
         self.subcauses = ['chronic_kidney_disease_due_to_hypertension',
-            'chronic_kidney_disease_due_to_glomerulonephritis',
-            'chronic_kidney_disease_due_to_other_and_unspecified_causes',
-            'chronic_kidney_disease_due_to_diabetes_mellitus_type_1',
-            'chronic_kidney_disease_due_to_diabetes_mellitus_type_2']
+                          'chronic_kidney_disease_due_to_glomerulonephritis',
+                          'chronic_kidney_disease_due_to_other_and_unspecified_causes',
+                          'chronic_kidney_disease_due_to_diabetes_mellitus_type_1',
+                          'chronic_kidney_disease_due_to_diabetes_mellitus_type_2']
 
     @property
     def name(self):
@@ -26,7 +26,6 @@ class CKD_SI:
         infected.allow_self_transitions()
 
         builder.components.add_components([DiseaseModel(self.cause, states=[healthy, infected])])
-
 
     def __repr__(self):
         return 'CKD_SI'
