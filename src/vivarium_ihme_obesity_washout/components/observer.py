@@ -44,7 +44,7 @@ class WashoutObserver(MortalityObserver):
 
     def on_collect_metrics(self, event):
         if self.clock() < self.program_start <= event.time:
-            pop = self.population_view.get(index, query='alive == "alive"')
+            pop = self.population_view.get(event.index, query='alive == "alive"')
             self.bmi_groups = self.split_bmi(pop.index)
 
     def split_bmi(self, index: pd.Index) -> Dict[str, pd.Index]:
