@@ -78,7 +78,7 @@ class WashoutObserver(MortalityObserver):
         pop.loc[pop.exit_time.isnull(), 'exit_time'] = self.clock()
 
         for group, group_index in self.bmi_groups.items():
-            eligble = self.eligble(pop.loc[group_index])
+            eligble = self.eligible(pop.loc[group_index])
             m = super().metrics(eligble, {})
             m = {f'{k}_among_{group}': v for k, v in m.items()}
             metrics.update(m)
