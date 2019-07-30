@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     install_requirements = [
         'vivarium==0.8.22',
-        'vivarium_public_health==0.9.16',
+        'vivarium_public_health==0.9.18',
         'vivarium_cluster_tools==1.0.14',
         'vivarium_inputs[data]==3.0.1',
         'vivarium_gbd_access==2.0.4', # we need direct access to this for artifact builder
